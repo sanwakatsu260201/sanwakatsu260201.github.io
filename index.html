@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>株式会社サンワ・セキュリティー | 全ての人に安全と安心を！大阪の警備会社</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* 全体のリセットと共通設定 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #ffffff;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0b2f61;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #d4af37;
+        }
+
+        /* ヘッダー */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo-img {
+            height: 50px;
+            width: auto;
+            object-fit: contain; /* 横比を維持 */
+        }
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0b2f61;
+            letter-spacing: 1px;
+        }
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+        nav ul a {
+            font-weight: 500;
+            color: #444;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+        nav ul a:hover {
+            color: #0b2f61;
+        }
+
+        /* メインビジュアル */
+        .hero {
+            background: linear-gradient(135deg, #0b2f61 0%, #1a4a8a 100%);
+            color: #ffffff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        .hero-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .hero-sub {
+            font-size: 1.25rem;
+            color: #d4af37;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        /* ご挨拶 */
+        .greeting {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+        .greeting-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 2;
+        }
+
+        /* 業務内容 */
+        .services {
+            padding: 80px 0;
+        }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-top: 5px solid #0b2f61;
+            padding: 30px;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .service-card h3 {
+            font-size: 1.3rem;
+            color: #0b2f61;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        /* 各種募集（受注・採用） */
+        .recruitment {
+            padding: 80px 0;
+            background-color: #f4f6f9;
+        }
+        .recruit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+        }
+        @media (max-width: 600px) {
+            .recruit-grid { grid-template-columns: 1fr; }
+        }
+        .recruit-box {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 6px;
+            border: 1px solid #dcdcdc;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .recruit-box.order {
+            border-left: 6px solid #d4af37;
+        }
+        .recruit-box.jobs {
+            border-left: 6px solid #0b2f61;
+        }
+        .recruit-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #222;
+        }
+        .recruit-box ul li {
+            margin-bottom: 10px;
+            padding-left: 15px;
+            position: relative;
+        }
+        .recruit-box ul li::before {
+            content: '■';
+            position: absolute;
+            left: 0;
+            color: #d4af37;
+            font-size: 0.8rem;
+            top: 2px;
+        }
+
+        /* 会社概要 */
+        .company {
+            padding: 80px 0;
+        }
+        .company-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 50px;
+        }
+        .company-table th, .company-table td {
+            border: 1px solid #e0e0e0;
+            padding: 15px 20px;
+            text-align: left;
+        }
+        .company-table th {
+            background-color: #0b2f61;
+            color: #ffffff;
+            width: 25%;
+            font-weight: 500;
+        }
+        .company-table td {
+            background-color: #ffffff;
+        }
+        
+        /* 沿革 */
+        .history-title {
+            font-size: 1.5rem;
+            color: #0b2f61;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 50px;
+        }
+        .history-table td {
+            border-bottom: 1px solid #e0e0e0;
+            padding: 12px 15px;
+        }
+        .history-table .date {
+            width: 25%;
+            font-weight: 700;
+            color: #0b2f61;
+        }
+
+        /* 標識画像エリア */
+        .sign-area {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .sign-area h4 {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .sign-img {
+            max-width: 100%;
+            width: 500px;
+            height: auto;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        /* お問い合わせフォーム */
+        .contact {
+            padding: 80px 0;
+            background-color: #0b2f61;
+            color: #ffffff;
+        }
+        .contact .section-title {
+            color: #ffffff;
+        }
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ffffff;
+            border-radius: 4px;
+            background-color: #ffffff;
+            color: #333;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #d4af37;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #c19e30;
+        }
+        .contact-note {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #e0e0e0;
+        }
+
+        /* フッター */
+        footer {
+            background-color: #072042;
+            color: #8fa0b5;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-wrap container">
+            <div class="logo-area">
+                <img src="ロゴ.jpg" alt="株式会社サンワ・セキュリティー ロゴ" class="logo-img">
+                <span class="logo-text">株式会社サンワ・セキュリティー</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#greeting">ご挨拶</a></li>
+                    <li><a href="#services">業務内容</a></li>
+                    <li><a href="#recruitment">募集要項</a></li>
+                    <li><a href="#company">会社概要</a></li>
+                    <li><a href="#contact">お問合せ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content container">
+            <h1>誠実な仕事で信用という財産を蓄える</h1>
+            <p class="hero-sub">全ての人に安全と安心を！</p>
+        </div>
+    </section>
+
+    <section id="greeting" class="greeting">
+        <div class="container">
+            <h2 class="section-title">ご挨拶</h2>
+            <p class="greeting-text">
+                私ども株式会社サンワ・セキュリティーは、お客様の想いを誠実に受け止め安心して仕事をお任せいただき、ご満足いただけることを第一としております。確かな技術とノウハウ、速度信頼のネットワークでもって全ての人に安全と安心を実感できる警備に努めております。
+            </p>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">業務内容</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>施設警備</h3>
+                    <p>多くの人々が往来する公共施設、各種病院、各種学校、区分所有オフィス、マンションなどの集合住宅、大規模商業施設、大規模レジャー施設などの内部や周辺の安全確保、駐車場の管理などを豊富な経験とノウハウで安全で確実な警備を行います。</p>
+                </div>
+                <div class="service-card">
+                    <h3>交通誘導</h3>
+                    <p>工事現場周辺や危険を伴う環境下での歩行者や作業者の安全確保や、交通事故を未未然に防ぎ円滑な車両の通行を誘導することが任務です。また、それに伴う渋滞やトラブルを未未然に防ぐなど、適確な状況判断で適切な警備を行っています。</p>
+                </div>
+                <div class="service-card">
+                    <h3>雑踏警備</h3>
+                    <p>大規模商業施設の入退場やコンサート会場、花火大会など各種イベントの警備・誘導など、安全でスムースな催事運営が実現するよう事前に主催者と綿密な計画のもとに往来される多数の人々の安全に隊員一丸で取り組んでいます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="recruitment" class="recruitment">
+        <div class="container">
+            <h2 class="section-title">募集要項</h2>
+            <div class="recruit-grid">
+                <div class="recruit-box order">
+                    <h3>【企業・施主様へ】警備のご用命・受注募集</h3>
+                    <p style="margin-bottom: 15px;">各種警備のご依頼や御見積の相談を随時承っております。単発のイベントから長期の常駐警備まで幅広く柔軟に対応可能です。</p>
+                    <ul>
+                        <li>新築・改修工事、道路工事に伴う交通誘導警備</li>
+                        <li>商業施設や各種イベント、お祭り等の雑踏警備</li>
+                        <li>学校、病院、オフィス等の常駐・巡回施設警備</li>
+                        <li>ご予算・規模に合わせた最適な警備計画のご提案</li>
+                    </ul>
+                    <p style="margin-top: 15px; font-weight: bold; color: #0b2f61;">下部のお問い合わせフォームよりお気軽にご連絡ください。</p>
+                </div>
+                <div class="recruit-box jobs">
+                    <h3>【求職者様へ】警備スタッフ・採用募集</h3>
+                    <p style="margin-bottom: 15px;">隊員約100名在籍！未経験の方でも安心してスタートできる丁寧な研修制度を整えています。皆様からのご応募をお待ちしております。</p>
+                    <ul>
+                        <li><strong>職種：</strong>警備スタッフ（施設・交通誘導・雑踏）</li>
+                        <li><strong>地域：</strong>大阪市内および近郊地域</li>
+                        <li><strong>対象：</strong>年齢・経験不問（シニア世代も多数活躍中！）</li>
+                        <li><strong>待遇：</strong>各種社会保険完備、制服貸与、各種手当あり</li>
+                    </ul>
+                    <p style="margin-top: 15px; font-weight: bold; color: #0b2f61;">ご応募・選考のご相談はフォームより承っております。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="company" class="company">
+        <div class="container">
+            <h2 class="section-title">会社概要</h2>
+            <table class="company-table">
+                <tr>
+                    <th>名 称</th>
+                    <td>株式会社 サンワ・セキュリティー</td>
+                </tr>
+                <tr>
+                    <th>代表取締役</th>
+                    <td>岡本 義彦</td>
+                </tr>
+                <tr>
+                    <th>所在地</th>
+                    <td>〒547-0026 大阪市平野区喜連西2-11-41<br>TEL. 06-6701-5655<br>FAX. 06-6701-5677</td>
+                </tr>
+                <tr>
+                    <th>設立年月日</th>
+                    <td>平成23年12月1日</td>
+                </tr>
+                <tr>
+                    <th>許可番号</th>
+                    <td>大阪府公安委員会認定 (第62002682号)</td>
+                </tr>
+                <tr>
+                    <th>許可業種</th>
+                    <td>交通誘導 / 雑踏警備 / 施設警備</td>
+                </tr>
+                <tr>
+                    <th>在籍隊員数</th>
+                    <td>約100名在籍</td>
+                </tr>
+            </table>
+
+            <h3 class="history-title">会社沿革</h3>
+            <table class="history-table">
+                <tr>
+                    <td class="date">平成23年12月</td>
+                    <td>サンワ・セキュリティーとして開業</td>
+                </tr>
+                <tr>
+                    <td class="date">平成24年5月</td>
+                    <td>平野防犯協会に加入</td>
+                </tr>
+                <tr>
+                    <td class="date">平成26年7月</td>
+                    <td>株式会社サンワ・セキュリティーに商号変更</td>
+                </tr>
+                <tr>
+                    <td class="date">平成26年9月</td>
+                    <td>全国・大阪府警備協会加入</td>
+                </tr>
+                <tr>
+                    <td class="date">令和2年6月</td>
+                    <td>本社事務所移転</td>
+                </tr>
+                <tr>
+                    <td class="date">令和3年5月</td>
+                    <td>東京2020オリンピック・パラリンピック警備共同企業体組合員</td>
+                </tr>
+            </table>
+
+            <div class="sign-area">
+                <h4>警備業者標識（警備登録証）</h4>
+                <img src="警備業者標識.jpg" alt="大阪府公安委員会認定 警備業者標識" class="sign-img">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">お問合せフォーム</h2>
+            <div class="contact-form">
+                <form id="mailForm" onsubmit="sendFormMail(event)">
+                    <div class="form-group">
+                        <label for="form_type">お問い合わせの目的 *</label>
+                        <select id="form_type" required>
+                            <option value="">選択してください</option>
+                            <option value="警備のご依頼・御見積（受注募集）">警備のご依頼・御見積（受注募集）</option>
+                            <option value="求人へのご応募・ご相談（採用募集）">求人へのご応募・ご相談（採用募集）</option>
+                            <option value="その他のお問い合わせ">その他のお問い合わせ</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="company_name">貴社名（個人の場合は不要）</label>
+                        <input type="text" id="company_name" placeholder="例：株式会社〇〇">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">お名前 *</label>
+                        <input type="text" id="name" placeholder="例：山田 太郎" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tel">お電話番号 *</label>
+                        <input type="tel" id="tel" placeholder="例：06-6701-5655" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">お問い合わせ内容 *</label>
+                        <textarea id="message" placeholder="ご依頼の規模・時期や、採用応募の旨など詳細をご記入ください。" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">メールを作成して送信する</button>
+                    <p class="contact-note">※ボタンを押すと、お使いのメールソフトが文字化けのない状態で自動起動します。</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 株式会社 サンワ・セキュリティー All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function sendFormMail(event) {
+            event.preventDefault(); 
+            
+            const type = document.getElementById('form_type').value;
+            const company = document.getElementById('company_name').value;
+            const name = document.getElementById('name').value;
+            const tel = document.getElementById('tel').value;
+            const message = document.getElementById('message').value;
+            
+            const subjectText = `【HPお問合せ】_${type}`;
+            let bodyText = `【お問い合わせ目的】\n${type}\n\n`;
+            if(company) {
+                bodyText += `【貴社名】\n${company}\n`;
+            }
+            bodyText += `【お名前】\n${name}\n\n`;
+            bodyText += `【お電話番号】\n${tel}\n\n`;
+            bodyText += `【内容】\n${message}\n`;
+            
+            const targetMail = "sanwa-katsu@galaxy.ocn.ne.jp";
+            const encodedSubject = encodeURIComponent(subjectText);
+            const encodedBody = encodeURIComponent(bodyText);
+            
+            window.location.href = `mailto:${targetMail}?subject=${encodedSubject}&body=${encodedBody}`;
+        }
+    </script>
+</body>
+</html>
